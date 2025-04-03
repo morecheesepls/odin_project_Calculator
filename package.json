@@ -1,0 +1,23 @@
+{
+  "name": "odin_project_calculator",
+  "version": "1.0.0",
+  "description": "Calculator Project in the Odin Project Foundations Course",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morecheesepls/odin_project_Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morecheesepls/odin_project_Calculator/issues"
+  },
+  "homepage": "https://github.com/morecheesepls/odin_project_Calculator#readme",
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
