@@ -5,7 +5,7 @@ const displayScreen = document.querySelector("#calcScreen");
 let currentDisplayScreen = "";
 
 // Event Listener for all Buttons
-const buttonPress = document.querySelectorAll(".button").forEach(button => {
+const buttonPress = document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
             currentDisplayScreen += button.textContent;
             displayScreen.textContent = currentDisplayScreen;

@@ -40,7 +40,7 @@ body {
     padding: 5px;
 }
 
-.button {
+#calcButtonContainer * {
     height: 60px;
     width: 60px;
     font-size: 20px;
