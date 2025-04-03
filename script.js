@@ -1,29 +1,27 @@
-let num1 = [];
-let num2 = [];
-let operator;
-let displayScreen = [];
+let num1 = "";
+let num2 = "";
+let operator = "";
+const displayScreen = document.querySelector("#calcScreen");
+let currentDisplayScreen = "";
+
+console.log(typeof displayScreen)
 
 // Event Listener for all Buttons
-const operatorButton = document.addEventListener("DOMContentLoaded", () => {
+const buttonPress = document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".button").forEach(button => {
         button.addEventListener("click", () => {
-            console.log("CLICK TEST!");
+            currentDisplayScreen += button.textContent;
+            console.log(currentDisplayScreen);
         });
     });
 });
 
-// Clear Button Functionality
-const clearButton = document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("#clear").forEach(button => {
-        button.addEventListener("click", () => {
-            num1 = [];
-            num2 = [];
-            operator;
-            displayScreen = [];
-            console.log("CLEAR");
-        });
-    });
-});
+// Clear Button
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#clear").addEventListener("click", () => {
+        currentDisplayScreen = "";
+    }) 
+})
 
 // Individual Calculation Functions
 const add = function(a, b) {
@@ -54,8 +52,6 @@ function operate(num1, operator, num2) {
         return divide(num1, num2);
     };
 };
-
-console.log(operate(num1, operator, num2));
 
 // module.exports = {
 //     add,
