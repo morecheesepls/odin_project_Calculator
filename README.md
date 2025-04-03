@@ -12,17 +12,21 @@ return a new Function() that evaluates a string
 
 # Instructions
 
-X1. Your calculator is going to contain functions for all of the basic math operators you typically find on calculators, so start by creating functions for the following items and testing them in your browser’s console:
+1. DONE
+Your calculator is going to contain functions for all of the basic math operators you typically find on calculators, so start by creating functions for the following items and testing them in your browser’s console:
     * add
     * subtract
     * multiply
     * divide
 
-X2. A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables, one for each part of the operation. You’ll use these variables to update your display later.
+2. DONE
+A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables, one for each part of the operation. You’ll use these variables to update your display later.
 
-3. Create a new function __operate__ that takes an operator and two numbers and then calls one of the above functions on the numbers.
+3. DONE
+Create a new function __operate__ that takes an operator and two numbers and then calls one of the above functions on the numbers.
 
-4. Create a basic HTML calculator with buttons for each digit and operator (including __=__).
+4. DONE
+Create a basic HTML calculator with buttons for each digit and operator (including __=__).
     * Don’t worry about making them functional just yet.
     * There should also be a display for the calculator. Go ahead and fill it with some dummy numbers so it looks correct.
     * Add a “clear” button.
