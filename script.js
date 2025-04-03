@@ -1,13 +1,26 @@
-let num1;
-let num2;
+let num1 = [];
+let num2 = [];
 let operator;
-let displayScreen;
+let displayScreen = [];
 
 // Event Listener for all Buttons
-document.addEventListener("DOMContentLoaded", () => {
+const operatorButton = document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".button").forEach(button => {
         button.addEventListener("click", () => {
             console.log("CLICK TEST!");
+        });
+    });
+});
+
+// Clear Button Functionality
+const clearButton = document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("#clear").forEach(button => {
+        button.addEventListener("click", () => {
+            num1 = [];
+            num2 = [];
+            operator;
+            displayScreen = [];
+            console.log("CLEAR");
         });
     });
 });
