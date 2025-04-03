@@ -4,24 +4,19 @@ let operator = "";
 const displayScreen = document.querySelector("#calcScreen");
 let currentDisplayScreen = "";
 
-console.log(typeof displayScreen)
-
 // Event Listener for all Buttons
-const buttonPress = document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".button").forEach(button => {
+const buttonPress = document.querySelectorAll(".button").forEach(button => {
         button.addEventListener("click", () => {
             currentDisplayScreen += button.textContent;
-            console.log(currentDisplayScreen);
+            displayScreen.textContent = currentDisplayScreen;
         });
     });
-});
 
 // Clear Button
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("#clear").addEventListener("click", () => {
-        currentDisplayScreen = "";
-    }) 
-})
+document.querySelector("#clear").addEventListener("click", () => {
+    currentDisplayScreen = "";
+    displayScreen.textContent = currentDisplayScreen;
+});
 
 // Individual Calculation Functions
 const add = function(a, b) {
