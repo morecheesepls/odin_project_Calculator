@@ -18,7 +18,7 @@ X1. Your calculator is going to contain functions for all of the basic math oper
     * multiply
     * divide
 
-2. A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables, one for each part of the operation. You’ll use these variables to update your display later.
+X2. A calculator operation will consist of a number, an operator, and another number. For example, 3 + 5. Create three variables, one for each part of the operation. You’ll use these variables to update your display later.
 
 3. Create a new function __operate__ that takes an operator and two numbers and then calls one of the above functions on the numbers.
 
