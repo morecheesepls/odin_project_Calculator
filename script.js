@@ -2,15 +2,28 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 const displayScreen = document.querySelector("#calcScreen");
+let tempNumberContainer = ""
 let currentDisplayScreen = "";
 
-// Event Listener for all Buttons
-const buttonPress = document.querySelectorAll(".displayButton").forEach(button => {
+// Event Listener for all non-operator buttons
+document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
             currentDisplayScreen += button.textContent;
+            tempNumberContainer += button.textContent;
             displayScreen.textContent = currentDisplayScreen;
         });
     });
+
+// Event Listener for all operator buttons
+document.querySelectorAll(".operator").forEach(button => {
+    button.addEventListener("click", () => {
+        console.log(num1 = tempNumberContainer);
+        tempNumberContainer = "";
+        console.log(operator = button.textContent);
+        currentDisplayScreen += operator;
+        displayScreen.textContent = currentDisplayScreen;
+    })
+})
 
 // Clear Button
 document.querySelector("#clear").addEventListener("click", () => {
