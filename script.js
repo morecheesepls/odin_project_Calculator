@@ -12,7 +12,6 @@ document.querySelectorAll(".displayButton").forEach(button => {
             if (result != "") {
                 currentDisplayScreen = "";
                 displayScreen.textContent = currentDisplayScreen;
-                result = "";
                 currentDisplayScreen += button.textContent;
                 tempNumberContainer += button.textContent;
                 displayScreen.textContent = currentDisplayScreen;
@@ -39,7 +38,11 @@ document.querySelectorAll(".operator").forEach(button => {
 document.querySelector("#equals").addEventListener("click", () => {
     num2 = tempNumberContainer; // Move user input from temp variable to num2
     tempNumberContainer = ""; // Clear temp variable
-    result = operate(num1, operator, num2);
+    if (result === "") {
+        result = operate(num1, operator, num2);
+    } else {
+        result = operate(result, operator, num2);
+    };
     displayScreen.textContent = result;
     num1 = "";
     num2 = "";

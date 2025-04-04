@@ -31,9 +31,11 @@ Create a basic HTML calculator with buttons for each digit and operator (includi
     * There should also be a display for the calculator. Go ahead and fill it with some dummy numbers so it looks correct.
     * Add a “clear” button.
 
-5. Create the functions that populate the display when you click the digit buttons. You should store the content of the display (the number) in a variable for use in the next step.
+5. DONE
+Create the functions that populate the display when you click the digit buttons. You should store the content of the display (the number) in a variable for use in the next step.
 
-6. Make the calculator work! You’ll need to store the first and second numbers input by the user and then __operate()__ on them when the user presses the __=__ button, according to the operator that was selected between the numbers.
+6. DONE
+Make the calculator work! You’ll need to store the first and second numbers input by the user and then __operate()__ on them when the user presses the __=__ button, according to the operator that was selected between the numbers.
     *You should already have the code that can populate the display, so once operate has been called, update the display with the result of the operation.
     * This is the hardest part of the project. You need to figure out how to store all the values and call the operate function with them. Don’t feel bad if it takes you a while to figure out the logic.
 
