@@ -17,11 +17,11 @@ document.querySelectorAll(".displayButton").forEach(button => {
 // Event Listener for all operator buttons
 document.querySelectorAll(".operator").forEach(button => {
     button.addEventListener("click", () => {
-        console.log(num1 = tempNumberContainer);
-        tempNumberContainer = "";
-        console.log(operator = button.textContent);
-        currentDisplayScreen += operator;
-        displayScreen.textContent = currentDisplayScreen;
+        num1 = tempNumberContainer; // Move user input from temp variable to num1  
+        tempNumberContainer = ""; // Clear temp variable
+        console.log(operator = button.textContent); // add operator to variable
+        currentDisplayScreen += operator; // add operator to display screen variable
+        displayScreen.textContent = currentDisplayScreen; // update display screen
     })
 })
 
