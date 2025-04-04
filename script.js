@@ -2,9 +2,9 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
-const displayScreen = document.querySelector("#calcScreen");
 let tempNumberContainer = "";
 let currentDisplayScreen = "";
+const displayScreen = document.querySelector("#calcScreen");
 
 // Event Listener for all non-operator buttons
 document.querySelectorAll(".displayButton").forEach(button => {
@@ -60,7 +60,7 @@ document.querySelector("#clear").addEventListener("click", () => {
 
 // Individual Calculation Functions
 const add = function(a, b) {
-	return a+b;
+	return parseFloat(a) + parseFloat(b);
 };
 
 const subtract = function(a, b) {
@@ -88,10 +88,10 @@ function operate(num1, operator, num2) {
     };
 };
 
-// module.exports = {
-//     add,
-//     subtract,
-//     multiply,
-//     divide,
-//     operate,
-// };
+module.exports = {
+    add,
+    subtract,
+    multiply,
+    divide,
+    operate,
+};
