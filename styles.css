@@ -40,7 +40,7 @@ body {
     padding: 5px;
 }
 
-#calcButtonContainer * {
+button {
     height: 60px;
     width: 60px;
     font-size: 20px;
@@ -58,3 +58,11 @@ body {
 #equals {
     background-color: green;
 }
+
+#openingParenthesis, 
+#closingParenthesis, 
+#percent {
+    background-color: grey;
+    border: none;
+}
+

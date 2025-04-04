@@ -11,6 +11,7 @@ document.querySelectorAll(".displayButton").forEach(button => {
             currentDisplayScreen += button.textContent;
             tempNumberContainer += button.textContent;
             displayScreen.textContent = currentDisplayScreen;
+            console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | op is ${operator} | num2 is ${num2}`);
         });
     });
 
@@ -19,16 +20,35 @@ document.querySelectorAll(".operator").forEach(button => {
     button.addEventListener("click", () => {
         num1 = tempNumberContainer; // Move user input from temp variable to num1  
         tempNumberContainer = ""; // Clear temp variable
-        console.log(operator = button.textContent); // add operator to variable
+        operator = button.textContent; // add operator to variable
         currentDisplayScreen += operator; // add operator to display screen variable
         displayScreen.textContent = currentDisplayScreen; // update display screen
+        console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | op is ${operator} | num2 is ${num2}`);
     })
+})
+
+// Event Listener for Equal button
+document.querySelector("#equals").addEventListener("click", () => {
+    num2 = tempNumberContainer; // Move user input from temp variable to num2
+    tempNumberContainer = ""; // Clear temp variable
+    currentDisplayScreen = operate(num1, operator, num2);
+    displayScreen.textContent = currentDisplayScreen;
+    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | op is ${operator} | num2 is ${num2}`);
+    num1 = "";
+    num2 = "";
+    operator = "";
+    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | op is ${operator} | num2 is ${num2}`);
 })
 
 // Clear Button
 document.querySelector("#clear").addEventListener("click", () => {
+    num1 = "";
+    num2 = "";
+    operator = "";
+    tempNumberContainer = "";
     currentDisplayScreen = "";
     displayScreen.textContent = currentDisplayScreen;
+    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | op is ${operator} | num2 is ${num2}`);
 });
 
 // Individual Calculation Functions
