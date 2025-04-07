@@ -55,7 +55,7 @@ document.querySelectorAll(".displayButton").forEach(button => {
 // Operator Button Functionality (+, -, *, /)
 document.querySelectorAll(".operator").forEach(button => {
     button.addEventListener("click", () => {
-        if (tempNumberContainer === "" && num1 === "" && num2 === "") { // tempContainer, num1, num2 are empty and the operator is selected.
+        if (tempNumberContainer === "" && num1 === "" && operator === "" && num2 === "" && result === "") { // GUARD: Operator without something to calculate unless the operator is a '-' for negative numbers.
             currentDisplayScreen = "ERROR";
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
