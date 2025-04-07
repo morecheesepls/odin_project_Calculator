@@ -154,13 +154,13 @@ const divide = function(a, b) {
 // Take an operator and two numbers, then call one of the calculation functions.
 function operate(num1, operator, num2) {
     if (operator == '+') {
-        return add(num1, num2);
+        return add(num1, num2).toFixed(4);
     } else if (operator == '-') {
-        return subtract(num1, num2);
+        return subtract(num1, num2).toFixed(4);
     } else if (operator == '*') {
-        return multiply(num1, num2);
+        return multiply(num1, num2).toFixed(4);
     } else if (operator == '/') {
-        return divide(num1, num2);
+        return divide(num1, num2).toFixed(4);
     };
 };
 
