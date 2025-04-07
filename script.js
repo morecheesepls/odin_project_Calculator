@@ -12,36 +12,51 @@ document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
             if (button.textContent === "." && tempNumberContainer.includes('.')) { // prevent use of multiple periods
                 return;
-            } else if (num1 === "" && num2 === "") { // Neither number has been assigned.
-                tempNumberContainer += button.textContent;
-                currentDisplayScreen = tempNumberContainer;
-                updateDisplayScreen();
-                console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 has been assigned and tempContainer is not storing a value
-                tempNumberContainer += button.textContent;
-                currentDisplayScreen += button.textContent;
-                updateDisplayScreen();
-                console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "" && result !== "") { // Number button is selected when num1 AND num2 are already assigned.
-                num1 = result;
-                result = "";
-                num2 = "";
-                tempNumberContainer += button.textContent;
-                currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
-                updateDisplayScreen();
-                console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "") { // tempContainer is empty and both numbers are assigned
-                tempNumberContainer += button.textContent;
-                num2 = "";
-                currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
-                updateDisplayScreen();
-                console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumberContainer !== "" && num1 !== "" && operator !== "" & num2 === "") {
-                tempNumberContainer += button.textContent;
-                currentDisplayScreen += button.textContent;
-                updateDisplayScreen();
-                console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            }
+            } else if (tempNumberContainer.length > 4) {
+                return;
+                };
+                    if (num1 === "" && num2 === "") { // Neither number has been assigned.
+                    tempNumberContainer += button.textContent;
+                    currentDisplayScreen = tempNumberContainer;
+                    updateDisplayScreen();
+                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            } else if (tempNumberContainer.length > 4) {
+                return;
+                };
+                    if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 has been assigned and tempContainer is not storing a value
+                    tempNumberContainer += button.textContent;
+                    currentDisplayScreen += button.textContent;
+                    updateDisplayScreen();
+                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            } else if (tempNumberContainer.length > 4) {
+                return;
+                };
+                    if (tempNumberContainer === "" && num1 !== "" && num2 !== "" && result !== "") { // Number button is selected when num1 AND num2 are already assigned.
+                    num1 = result;
+                    result = "";
+                    num2 = "";
+                    tempNumberContainer += button.textContent;
+                    currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
+                    updateDisplayScreen();
+                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            } else if (tempNumberContainer.length > 4) {
+                return;
+                };
+                    if (tempNumberContainer === "" && num1 !== "" && num2 !== "") { // tempContainer is empty and both numbers are assigned
+                    tempNumberContainer += button.textContent;
+                    num2 = "";
+                    currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
+                    updateDisplayScreen();
+                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            } else if (tempNumberContainer.length > 4) {
+                return;
+                };
+                    if (tempNumberContainer !== "" && num1 !== "" && operator !== "" & num2 === "") { // 
+                    tempNumberContainer += button.textContent;
+                    currentDisplayScreen += button.textContent;
+                    updateDisplayScreen();
+                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            };
         });
     });
             
@@ -64,7 +79,7 @@ document.querySelectorAll(".operator").forEach(button => {
             currentDisplayScreen = `${num1} ${operator} ${num2}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 is assigned, num2 is empty - add operator to display
+        } else if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 is assigned, num2 is empty, display updates to show operator
             operator = button.textContent;
             currentDisplayScreen += `${num1} ${operator} ${num2}`;
             updateDisplayScreen();
@@ -79,7 +94,7 @@ document.querySelectorAll(".operator").forEach(button => {
             currentDisplayScreen = `${result} ${operator}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "") {
+        } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "") { // tempContainer is empty, numbers are assigned
             result = operate(num1, operator, num2);
             currentDisplayScreen = `${result}`;
             updateDisplayScreen();
@@ -89,7 +104,7 @@ document.querySelectorAll(".operator").forEach(button => {
             currentDisplayScreen += `${result} ${operator}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        }
+        } 
     });
 });
 
