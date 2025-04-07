@@ -10,41 +10,76 @@ const updateDisplayScreen = () => displayScreen.textContent = currentDisplayScre
 // Number Button Functionality
 document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
-            if (num1 === "" && operator === "" && num2 === "") { // No values have been stored.
-                currentDisplayScreen += button.textContent;
-                num1 += button.textContent;
+            if (button.textContent === "." && tempNumberContainer.includes('.')) { // prevent use of multiple periods
+                return;
+            } else if (num1 === "" && num2 === "") { // Neither number has been assigned.
+                tempNumberContainer += button.textContent;
+                currentDisplayScreen = tempNumberContainer;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (num1 !== "" && operator !== "" && num2 === "") { // The value for the 1st Number and Operator have been stored.
+            } else if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 has been assigned and tempContainer is storing a value
+                tempNumberContainer += button.textContent;
                 currentDisplayScreen += button.textContent;
-                num2 += button.textContent;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (num1 !== "" && num2 !== "") { // Values have been stored for 1st and 2nd Numbers.
+            } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "" && result !== "") { // Number button is selected when num1 AND num2 are already assigned.
                 num1 = result;
+                result = "";
+                num2 = "";
                 num2 += button.textContent;
                 currentDisplayScreen = `${num1} ${operator} ${num2}`;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            };
+            } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "") {
+                tempNumberContainer += button.textContent;
+                num2 = "";
+                currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
+                updateDisplayScreen();
+                console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            }
         });
     });
             
 // Operator Button Functionality (+, -, *, /)
 document.querySelectorAll(".operator").forEach(button => {
     button.addEventListener("click", () => {
-        if (num1 !== "" && num2 === "") { // Operator pressed for 1st time
+        if (tempNumberContainer === "" && num1 === "" && num2 === "") { // tempContainer, num1, num2 are empty and the operator is selected.
+            currentDisplayScreen = "ERROR";
+            updateDisplayScreen();
+            console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+        } else if (tempNumberContainer !== "" && num1 === "" && num2 === "") {  // tempContainer is assigned, num1 and num2 are empty and the operator is selected.
+            num1 = tempNumberContainer;
+            tempNumberContainer = "";
             operator = button.textContent;
             currentDisplayScreen = `${num1} ${operator} ${num2}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (num1 !== "" && num2 !== "") { // Operator is pressed instead of equals
+        } else if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 is assigned, num2 is empty - add operator to display
+            operator = button.textContent;
+            currentDisplayScreen += `${num1} ${operator} ${num2}`;
+            updateDisplayScreen();
+            console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+        } else if (tempNumberContainer !== "" && num1 !== "" && num2 === "") { // num1 and tempContainer are assigned, operator is selected again (rather than equal)
+            num2 = tempNumberContainer;
+            tempNumberContainer = "";
             result = operate(num1, operator, num2);
-            currentDisplayScreen = `${result} ${operator}`;
+            currentDisplayScreen = `${result}`;
             updateDisplayScreen();
             operator = button.textContent;
+            currentDisplayScreen = `${result} ${operator}`;
+            updateDisplayScreen();
             console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        };
+        } else if (tempNumberContainer === "" && num1 !== "" && num2 !== "") {
+            result = operate(num1, operator, num2);
+            currentDisplayScreen = `${result}`;
+            updateDisplayScreen();
+            num1 = result;
+            result = "";
+            operator = button.textContent;
+            currentDisplayScreen += `${result} ${operator}`;
+            updateDisplayScreen();
+            console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+        }
     });
 });
 
