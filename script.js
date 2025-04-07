@@ -10,20 +10,20 @@ const updateDisplayScreen = () => displayScreen.textContent = currentDisplayScre
 // Number Button Functionality
 document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
-            if (button.textContent === "." && tempNumberContainer.includes('.')) { // prevent use of multiple periods
+            if (button.textContent === "." && tempNumberContainer.includes('.')) { // GUARD: prevent use of multiple periods
                 return;
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
-                    if (num1 === "" && num2 === "") { // Neither number has been assigned.
+                    if (num1 === "" && operator === "" && num2 === "" && result === "") { // SCENARIO 1: All variables start empty, then the tempNum is assigned.
                     tempNumberContainer += button.textContent;
-                    currentDisplayScreen = tempNumberContainer;
+                    currentDisplayScreen += tempNumberContainer;
                     updateDisplayScreen();
                     console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
-                    if (tempNumberContainer === "" && num1 !== "" && num2 === "") { // num1 has been assigned and tempContainer is not storing a value
+                    if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 === "" && result === "") { // SCENARIO 2: num1 and operator start assigned, temp starts empty and gets assigned 
                     tempNumberContainer += button.textContent;
                     currentDisplayScreen += button.textContent;
                     updateDisplayScreen();
@@ -31,7 +31,7 @@ document.querySelectorAll(".displayButton").forEach(button => {
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
-                    if (tempNumberContainer === "" && num1 !== "" && num2 !== "" && result !== "") { // Number button is selected when num1 AND num2 are already assigned.
+                    if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 !== "" && result === "") { // SCENARIO 3: num1, operator, num2 are assigned
                     num1 = result;
                     result = "";
                     num2 = "";
@@ -42,21 +42,13 @@ document.querySelectorAll(".displayButton").forEach(button => {
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
-                    if (tempNumberContainer === "" && num1 !== "" && num2 !== "") { // tempContainer is empty and both numbers are assigned
+                    if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { // SCENARIO 4: tempContainer is empty, everything else is assigned
                     tempNumberContainer += button.textContent;
                     num2 = "";
-                    currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
-                    updateDisplayScreen();
-                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumberContainer.length > 4) {
-                return;
-                };
-                    if (tempNumberContainer !== "" && num1 !== "" && operator !== "" & num2 === "") { // 
-                    tempNumberContainer += button.textContent;
                     currentDisplayScreen += button.textContent;
                     updateDisplayScreen();
                     console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            };
+            } 
         });
     });
             
@@ -154,13 +146,13 @@ const divide = function(a, b) {
 // Take an operator and two numbers, then call one of the calculation functions.
 function operate(num1, operator, num2) {
     if (operator == '+') {
-        return add(num1, num2).toFixed(4);
+        return add(num1, num2);
     } else if (operator == '-') {
-        return subtract(num1, num2).toFixed(4);
+        return subtract(num1, num2);
     } else if (operator == '*') {
-        return multiply(num1, num2).toFixed(4);
+        return multiply(num1, num2);
     } else if (operator == '/') {
-        return divide(num1, num2).toFixed(4);
+        return divide(num1, num2);
     };
 };
 
