@@ -12,7 +12,7 @@ document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
             if (button.textContent === "." && tempNumber.includes('.')) { // GUARD: prevent use of multiple periods
                 return;
-            } else if (tempNumber.length > 10) { // GUARD: limit the size of the number the user can input to prevent overflowing the display
+            } else if (tempNumber.length > 7) { // GUARD: limit the size of the number the user can input to prevent overflowing the display
                 return;
             } else if (tempNumber === "" && num1 === "" && operator === "" && num2 === "" && result === "") { 
                 currentDisplayScreen = "";
@@ -67,11 +67,14 @@ document.querySelectorAll(".operator").forEach(button => {
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
         } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "") {
             return;
-        } else if (num1 !== "" && operator === '/' && num2 === 0) { // GUARD: Divide by zero error - NOT WORKING
-            currentDisplayScreen = "Divide by zero? Bold move."
+        } else if (tempNumber === "0" && num1 !== "" && operator === "/") { // GUARD: Divide by zero error - NOT WORKING
+            currentDisplayScreen = "Divide by zero? Bold."
             updateDisplayScreen();
+            tempNumber = "";
             num1 = "";
+            operator = "";
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            return;
         } else if (tempNumber !== "" && num1 === "" && num2 === "") {  // tempContainer is assigned, num1 and num2 are empty and the operator is selected.
             num1 = tempNumber;
             tempNumber = "";
@@ -108,19 +111,49 @@ document.querySelectorAll(".operator").forEach(button => {
     });
 });
 
-// // Event Listener for Equal button
-// document.querySelector("#equals").addEventListener("click", () => {
-//     num2 = tempNumber; // Move user input from temp variable to num2
-//     tempNumber = ""; // Clear temp variable
-//     if (result === "") {
-//         result = operate(num1, operator, num2);
-//         console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-//     } else {
-//         result = operate(result, operator, num2);
-//         console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-//     };
-//     displayScreen.textContent = result;
-// })
+// Event Listener for Equal button
+document.querySelector("#equals").addEventListener("click", () => {
+    if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "") {
+        return;
+    } else if (tempNumber = "0" && num1 !== "" && operator === '/') { // GUARD: Divide by zero error - NOT WORKING
+        currentDisplayScreen = "Divide by zero? Bold."
+        updateDisplayScreen();
+        tempNumber = "";
+        num1 = "";
+        operator = "";
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+        return;
+    } else if (tempNumber !== "" && num1 === "" && num2 === "") {
+        num1 = tempNumber;
+        tempNumber = "";
+        operator = button.textContent;
+        currentDisplayScreen = `${num1} ${operator} ${num2}`;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } else if (tempNumber === "" && num1 !== "" && num2 === "") { 
+        operator = button.textContent;
+        currentDisplayScreen += `${num1} ${operator} ${num2}`;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } else if (tempNumber !== "" && num1 !== "" && num2 === "") { 
+        num2 = tempNumber;
+        tempNumber = "";
+        result = operate(num1, operator, num2);
+        currentDisplayScreen = `${result}`;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } else if (tempNumber === "" && num1 !== "" && num2 !== "" && result === "") {
+        result = operate(num1, operator, num2);
+        currentDisplayScreen = `${result}`;
+        updateDisplayScreen();
+        num1 = result;
+        result = "";
+        operator = button.textContent;
+        currentDisplayScreen += `${result} ${operator}`;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } 
+});
 
 // Clear Button
 document.querySelector("#clear").addEventListener("click", () => {

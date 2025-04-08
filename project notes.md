@@ -16,12 +16,12 @@ Xmultiple periods are rejected
 
 Xnum1 and operator are displayed, when num2 is typed, it does not delete the current display
 
-negative numbers?
+Xnegative numbers?
 
 XBUG: tempNum is  | num1 is 3 | operation is + | num2 is 5 | result is 8
 Xthere is no space between the operator and and next number on the display
 
-BUG: Check changing an operator after it's already been selected (before selecting num2)
+WISH LIST: Change an operator after it's already been selected (before selecting num2)
 
 
 
