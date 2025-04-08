@@ -6,7 +6,7 @@ XNum1 and Num2 have been stored and the operator is selected.
 
 XPressing an operator when num2 is empty causes an error
 
-Rounds numbers greater than 4 digits (currently toFixed shows 4 decimal places no matter what)
+XRounds numbers greater than 4 digits (currently toFixed shows 4 decimal places no matter what)
 
 Pressing equals when num1 or num2 is empty causes an error message
 
@@ -19,8 +19,9 @@ Xnum1 and operator are displayed, when num2 is typed, it does not delete the cur
 negative numbers?
 
 XBUG: tempNum is  | num1 is 3 | operation is + | num2 is 5 | result is 8
-there is no space between the operator and and next number on the display
+Xthere is no space between the operator and and next number on the display
 
+BUG: Check changing an operator after it's already been selected (before selecting num2)
 
 
 
@@ -60,3 +61,4 @@ Test - Edge Case
 type a period '.' before a number
 type a 2nd period e.g. 5.4.3
 divide by 0
+selecting 2 operators back to back
