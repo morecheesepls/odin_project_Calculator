@@ -67,7 +67,7 @@ document.querySelectorAll(".operator").forEach(button => {
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
         } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "") {
             return;
-        } else if (tempNumber === "0" && num1 !== "" && operator === "/") { // GUARD: Divide by zero error - NOT WORKING
+        } else if (tempNumber === "0" && num1 !== "" && operator === "/") { // GUARD: Divide by zero error.
             currentDisplayScreen = "Divide by zero? Bold."
             updateDisplayScreen();
             tempNumber = "";
@@ -75,19 +75,19 @@ document.querySelectorAll(".operator").forEach(button => {
             operator = "";
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             return;
-        } else if (tempNumber !== "" && num1 === "" && num2 === "") {  // tempContainer is assigned, num1 and num2 are empty and the operator is selected.
+        } else if (tempNumber !== "" && num1 === "" && num2 === "") {
             num1 = tempNumber;
             tempNumber = "";
             operator = button.textContent;
             currentDisplayScreen = `${num1} ${operator} ${num2}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (tempNumber === "" && num1 !== "" && num2 === "") { // num1 is assigned, num2 is empty, display updates to show operator
+        } else if (tempNumber === "" && num1 !== "" && num2 === "") {
             operator = button.textContent;
             currentDisplayScreen += `${num1} ${operator} ${num2}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (tempNumber !== "" && num1 !== "" && num2 === "") { // num1 and tempContainer are assigned, operator is selected again (rather than equal)
+        } else if (tempNumber !== "" && num1 !== "" && num2 === "") {
             num2 = tempNumber;
             tempNumber = "";
             result = operate(num1, operator, num2);
@@ -97,7 +97,7 @@ document.querySelectorAll(".operator").forEach(button => {
             currentDisplayScreen = `${result} ${operator}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (tempNumber === "" && num1 !== "" && num2 !== "" && result === "") { // tempContainer is empty, numbers are assigned
+        } else if (tempNumber === "" && num1 !== "" && num2 !== "" && result === "") {
             result = operate(num1, operator, num2);
             currentDisplayScreen = `${result}`;
             updateDisplayScreen();
@@ -113,9 +113,14 @@ document.querySelectorAll(".operator").forEach(button => {
 
 // Event Listener for Equal button
 document.querySelector("#equals").addEventListener("click", () => {
-    if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "") {
-        return;
-    } else if (tempNumber = "0" && num1 !== "" && operator === '/') { // GUARD: Divide by zero error - NOT WORKING
+    if (tempNumber !== "" && num1 === "" && operator === "" && num2 === "" && result === "") {
+        tempNumber = "";
+        num1 = "";
+        operator = "";
+        currentDisplayScreen = this.textContent;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } else if (tempNumber === "0" && num1 !== "" && operator === '/') { // GUARD: Divide by zero error.
         currentDisplayScreen = "Divide by zero? Bold."
         updateDisplayScreen();
         tempNumber = "";
@@ -123,36 +128,18 @@ document.querySelector("#equals").addEventListener("click", () => {
         operator = "";
         console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
         return;
-    } else if (tempNumber !== "" && num1 === "" && num2 === "") {
-        num1 = tempNumber;
-        tempNumber = "";
-        operator = button.textContent;
-        currentDisplayScreen = `${num1} ${operator} ${num2}`;
-        updateDisplayScreen();
-        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-    } else if (tempNumber === "" && num1 !== "" && num2 === "") { 
-        operator = button.textContent;
-        currentDisplayScreen += `${num1} ${operator} ${num2}`;
-        updateDisplayScreen();
-        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-    } else if (tempNumber !== "" && num1 !== "" && num2 === "") { 
+    } else if (tempNumber !== "" && num1 !== "" && operator !== "" && num2 === "" && result === "") {
         num2 = tempNumber;
         tempNumber = "";
         result = operate(num1, operator, num2);
         currentDisplayScreen = `${result}`;
         updateDisplayScreen();
-        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-    } else if (tempNumber === "" && num1 !== "" && num2 !== "" && result === "") {
-        result = operate(num1, operator, num2);
-        currentDisplayScreen = `${result}`;
-        updateDisplayScreen();
-        num1 = result;
+        num1 = "";
+        operator = "";
+        num2 = "";
         result = "";
-        operator = button.textContent;
-        currentDisplayScreen += `${result} ${operator}`;
-        updateDisplayScreen();
         console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-    } 
+    }
 });
 
 // Clear Button

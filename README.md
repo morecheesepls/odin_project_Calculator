@@ -39,17 +39,17 @@ Make the calculator work! You’ll need to store the first and second numbers in
     *You should already have the code that can populate the display, so once operate has been called, update the display with the result of the operation.
     * This is the hardest part of the project. You need to figure out how to store all the values and call the operate function with them. Don’t feel bad if it takes you a while to figure out the logic.
 
-7. Gotchas: watch out for and fix these bugs if they show up in your code:
-    * **Your calculator should not evaluate more than a single pair of numbers at a time.** Example: you enter a number (__12__), followed by an operator button (__+__), a second number button (__7__), and a second operator button (__-__). Your calculator should then do the following: first, evaluate the initial pair of numbers (__12 + 7__), then display the result of that calculation (__19__). Finally, use that result (19) as the first number in a new calculation, along with the next operator (__-__). An example of the behavior we’re looking for can be seen in this [student’s calculator live preview](https://mrbuddh4.github.io/calculator/).
-    * You should round answers with long decimals so that they don’t overflow the display.
-    * Pressing __=__ before entering all of the numbers or an operator could cause problems!
-    * Pressing “clear” should wipe out any existing data. Make sure the user is really starting fresh after pressing “clear”.
-    * Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
-    * Make sure that your calculator only runs an operation when supplied with two numbers and an operator by the user. Example: you enter a number (__2__), followed by an operator button (__+__). You press the operator button (__+__) a second consecutive time. Your calculator should not evaluate this as (__2 + 2__) and should not display the result (__4__). If consecutive operator buttons are pressed, your calculator should not run any evaluations, it should only take the last operator entered to be used for the next operation.
-    * When a result is displayed, pressing a new digit should clear the result and start a new calculation instead of appending the digit to the existing result. Check whether this is the case on your calculator!
+7. DONE Gotchas: watch out for and fix these bugs if they show up in your code:
+    DONE * **Your calculator should not evaluate more than a single pair of numbers at a time.** Example: you enter a number (__12__), followed by an operator button (__+__), a second number button (__7__), and a second operator button (__-__). Your calculator should then do the following: first, evaluate the initial pair of numbers (__12 + 7__), then display the result of that calculation (__19__). Finally, use that result (19) as the first number in a new calculation, along with the next operator (__-__). An example of the behavior we’re looking for can be seen in this [student’s calculator live preview](https://mrbuddh4.github.io/calculator/).
+    DONE * You should round answers with long decimals so that they don’t overflow the display.
+    DONE * Pressing __=__ before entering all of the numbers or an operator could cause problems!
+    DONE * Pressing “clear” should wipe out any existing data. Make sure the user is really starting fresh after pressing “clear”.
+    DONE * Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+    DONE * Make sure that your calculator only runs an operation when supplied with two numbers and an operator by the user. Example: you enter a number (__2__), followed by an operator button (__+__). You press the operator button (__+__) a second consecutive time. Your calculator should not evaluate this as (__2 + 2__) and should not display the result (__4__). If consecutive operator buttons are pressed, your calculator should not run any evaluations, it should only take the last operator entered to be used for the next operation.
+    DONE * When a result is displayed, pressing a new digit should clear the result and start a new calculation instead of appending the digit to the existing result. Check whether this is the case on your calculator!
 
 
 Extra credit
-    * Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! Make sure you don’t let them type more than one though, like: 12.3.56.5. Disable the . button if there’s already a decimal separator in the display.
+    DONE * Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! Make sure you don’t let them type more than one though, like: 12.3.56.5. Disable the . button if there’s already a decimal separator in the display.
     * Add a “backspace” button, so the user can undo their last input if they click the wrong number.
     * Add keyboard support!

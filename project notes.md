@@ -8,9 +8,9 @@ XPressing an operator when num2 is empty causes an error
 
 XRounds numbers greater than 4 digits (currently toFixed shows 4 decimal places no matter what)
 
-Pressing equals when num1 or num2 is empty causes an error message
+XPressing equals when num1 or num2 is empty causes an error message
 
-Snarky message is displayed when attempting to divide by 0
+XSnarky message is displayed when attempting to divide by 0
 
 Xmultiple periods are rejected
 
@@ -22,6 +22,11 @@ XBUG: tempNum is  | num1 is 3 | operation is + | num2 is 5 | result is 8
 Xthere is no space between the operator and and next number on the display
 
 WISH LIST: Change an operator after it's already been selected (before selecting num2)
+WISH LIST: After hitting the equals button, user should be able to select an operator and create another calculation using the 
+    result (right now selecting a new number starts a new calculation and selecting an operator would display an error)
+EXTRA CREDIT: Add a “backspace” button, so the user can undo their last input if they click the wrong number.
+EXTRA CREDIT: Add keyboard support!
+WISH LIST: Write Jest tests for the scenarios below:
 
 
 
@@ -62,3 +67,5 @@ type a period '.' before a number
 type a 2nd period e.g. 5.4.3
 divide by 0
 selecting 2 operators back to back
+select equals sign back to back
+backspace works (if implemented)
