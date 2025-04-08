@@ -57,11 +57,17 @@ document.querySelectorAll(".displayButton").forEach(button => {
 // Operator Button Functionality (+, -, *, /)
 document.querySelectorAll(".operator").forEach(button => {
     button.addEventListener("click", () => {
-        if (tempNumber === "" && num1 === "" && operator === "" && num2 === "" && result === "") { // GUARD: Operator without something to calculate unless the operator is a '-' for negative numbers.
+        if (tempNumber === "" && num1 === "" && operator === "" && num2 === "" && result === "") { // GUARD1: Cannot choose operators back to back.
             currentDisplayScreen = "ERROR";
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (num1 !== "" && operator === '/' && num2 === 0) { // Divide by zero error - NOT WORKING
+        } else if (tempNumber === "" && num1 === "" && operator === "" && num2 === "" && result !== "") { // GUARD2: Cannot choose operators back to back.
+            currentDisplayScreen = "ERROR";
+            updateDisplayScreen();
+            console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+        } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "") {
+            return;
+        } else if (num1 !== "" && operator === '/' && num2 === 0) { // GUARD: Divide by zero error - NOT WORKING
             currentDisplayScreen = "Divide by zero? Bold move."
             updateDisplayScreen();
             num1 = "";
@@ -88,7 +94,7 @@ document.querySelectorAll(".operator").forEach(button => {
             currentDisplayScreen = `${result} ${operator}`;
             updateDisplayScreen();
             console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-        } else if (tempNumber === "" && num1 !== "" && num2 !== "") { // tempContainer is empty, numbers are assigned
+        } else if (tempNumber === "" && num1 !== "" && num2 !== "" && result === "") { // tempContainer is empty, numbers are assigned
             result = operate(num1, operator, num2);
             currentDisplayScreen = `${result}`;
             updateDisplayScreen();
