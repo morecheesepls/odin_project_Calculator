@@ -16,39 +16,39 @@ document.querySelectorAll(".displayButton").forEach(button => {
                 return;
                 };
                     if (num1 === "" && operator === "" && num2 === "" && result === "") { // SCENARIO 1: All variables start empty, then the tempNum is assigned.
-                    tempNumberContainer += button.textContent;
-                    currentDisplayScreen += tempNumberContainer;
-                    updateDisplayScreen();
-                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+                        tempNumberContainer += button.textContent;
+                        currentDisplayScreen += tempNumberContainer;
+                        updateDisplayScreen();
+                        console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
                     if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 === "" && result === "") { // SCENARIO 2: num1 and operator start assigned, temp starts empty and gets assigned 
-                    tempNumberContainer += button.textContent;
-                    currentDisplayScreen += button.textContent;
-                    updateDisplayScreen();
-                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+                        tempNumberContainer += button.textContent;
+                        currentDisplayScreen += button.textContent;
+                        updateDisplayScreen();
+                        console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
-                    if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 !== "" && result === "") { // SCENARIO 3: num1, operator, num2 are assigned
-                    num1 = result;
-                    result = "";
-                    num2 = "";
-                    tempNumberContainer += button.textContent;
-                    currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
-                    updateDisplayScreen();
-                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+                    if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { // SCENARIO 3: num1, operator, num2 are assigned
+                        num1 = result;
+                        result = "";
+                        num2 = "";
+                        tempNumberContainer += button.textContent;
+                        currentDisplayScreen = `${num1} ${operator} ${tempNumberContainer}`;
+                        updateDisplayScreen();
+                        console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             } else if (tempNumberContainer.length > 4) {
                 return;
                 };
                     if (tempNumberContainer === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { // SCENARIO 4: tempContainer is empty, everything else is assigned
-                    tempNumberContainer += button.textContent;
-                    num2 = "";
-                    currentDisplayScreen += button.textContent;
-                    updateDisplayScreen();
-                    console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } 
+                        tempNumberContainer += button.textContent;
+                        num2 = "";
+                        currentDisplayScreen += button.textContent;
+                        updateDisplayScreen();
+                        console.log(`tempNum is ${tempNumberContainer} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+            }
         });
     });
             

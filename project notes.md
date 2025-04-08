@@ -18,6 +18,45 @@ Xnum1 and operator are displayed, when num2 is typed, it does not delete the cur
 
 negative numbers?
 
-BUG: tempNum is  | num1 is 3 | operation is + | num2 is 5 | result is 8
+XBUG: tempNum is  | num1 is 3 | operation is + | num2 is 5 | result is 8
 there is no space between the operator and and next number on the display
 
+
+
+
+Test - Common
+use operator to calculate - single digit, positive, whole numbers, addition
+use operator to calculate - single digit, positive, whole numbers, subtraction
+use operator to calculate - single digit, positive, whole numbers, multiplication
+use operator to calculate - single digit, positive, whole numbers, division
+use operator to calculate - single digit, positive, whole numbers, all 4 operators
+use operator to calculate - double digit, positive, whole numbers, addition
+use operator to calculate - double digit, positive, whole numbers, subtraction
+use operator to calculate - double digit, positive, whole numbers, multiplication
+use operator to calculate - double digit, positive, whole numbers, division
+use operator to calculate - double digit, positive, whole numbers, all 4 operators
+use operator to calculate - single digit, negative, whole numbers, addition
+use operator to calculate - single digit, negative, whole numbers, subtraction
+use operator to calculate - single digit, negative, whole numbers, multiplication
+use operator to calculate - single digit, negative, whole numbers, division
+use operator to calculate - single digit, negative, whole numbers, all 4 operators
+use operator to calculate - single digit, positive, floating numbers, addition
+use operator to calculate - single digit, positive, floating numbers, subtraction
+use operator to calculate - single digit, positive, floating numbers, multiplication
+use operator to calculate - single digit, positive, floating numbers, division
+use operator to calculate - single digit, positive, floating numbers, all 4 operators
+use operator to calculate - single digit, negative, floating numbers, addition
+use operator to calculate - single digit, negative, floating numbers, subtraction
+use operator to calculate - single digit, negative, floating numbers, multiplication
+use operator to calculate - single digit, negative, floating numbers, division
+use operator to calculate - single digit, negative, floating numbers, all 4 operators
+use equals sign to calculate - single digit, positive, whole numbers, addition
+use equals sign to calculate - double digit, positive, whole numbers, subtraction
+use equals sign to calculate - single digit, negative, whole numbers, multiplication
+use equals sign to calculate - single digit, positive, floating numbers, division
+
+
+Test - Edge Case
+type a period '.' before a number
+type a 2nd period e.g. 5.4.3
+divide by 0
