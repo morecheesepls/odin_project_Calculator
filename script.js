@@ -14,17 +14,19 @@ document.querySelectorAll(".displayButton").forEach(button => {
                 return;
             } else if (tempNumber.length > 10) { // GUARD: limit the size of the number the user can input to prevent overflowing the display
                 return;
-            } else if (tempNumber === "" && num1 === "" && operator === "" && num2 === "" && result === "") { // SCENARIO 1: All variables start empty, then the tempNum is assigned.
+            } else if (tempNumber === "" && num1 === "" && operator === "" && num2 === "" && result === "") { 
+                currentDisplayScreen = "";
+                updateDisplayScreen();
                 tempNumber += button.textContent;
                 currentDisplayScreen += tempNumber;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "" && result === "") { // SCENARIO 2: num1 and operator start assigned, temp starts empty and gets assigned 
+            } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "" && result === "") { 
                 tempNumber += button.textContent;
                 currentDisplayScreen += button.textContent;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { // SCENARIO 3: num1, operator, num2 are assigned
+            } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { 
                 num1 = result;
                 result = "";
                 num2 = "";
@@ -32,7 +34,7 @@ document.querySelectorAll(".displayButton").forEach(button => {
                 currentDisplayScreen = `${num1} ${operator} ${tempNumber}`;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
-            } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { // SCENARIO 4: tempContainer is empty, everything else is assigned
+            } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { 
                 tempNumber += button.textContent;
                 num2 = "";
                 currentDisplayScreen += button.textContent;
