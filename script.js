@@ -154,7 +154,7 @@ document.querySelector("#clear").addEventListener("click", () => {
     console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
 });
 
-// backspace button
+// Back button - deletes last input
 
 
 // Calculation Operator Functions
