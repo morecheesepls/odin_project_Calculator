@@ -1,3 +1,5 @@
+import {attachEventListeners} from './script.js';
+attachEventListeners();
 let num1 = "";
 let num2 = "";
 let operator = "";
@@ -265,10 +267,11 @@ function operate(num1, operator, num2) {
     return;
 };
 
-// module.exports = {
-//     add,
-//     subtract,
-//     multiply,
-//     divide,
-//     operate,
-// };
+module.exports = {
+    add,
+    subtract,
+    multiply,
+    divide,
+    operate,
+    attachEventListeners,
+};
