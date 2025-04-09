@@ -1,5 +1,3 @@
-import {attachEventListeners} from './script.js';
-attachEventListeners();
 let num1 = "";
 let num2 = "";
 let operator = "";
@@ -273,5 +271,4 @@ module.exports = {
     multiply,
     divide,
     operate,
-    attachEventListeners,
 };
