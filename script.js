@@ -10,6 +10,7 @@ const updateDisplayScreen = () => displayScreen.textContent = currentDisplayScre
 // Keyboard Support
 document.addEventListener("keydown", (event) => {
     const keyPressed = event.key;
+    console.log(event.key);
 
     const matchingNumberButton = document.querySelector(`.displayButton[data-key="${keyPressed}"]`);
     if (matchingNumberButton) {
@@ -29,6 +30,11 @@ document.addEventListener("keydown", (event) => {
     const matchingClearButton = document.querySelector(`#clear[data-key="${keyPressed}"]`);
     if (matchingClearButton) {
         matchingClearButton.click();
+    };
+
+    const matchingBackButton = document.querySelector(`#back[data-key="${keyPressed}"]`);
+    if (matchingBackButton) {
+        matchingBackButton.click();
     };
 });
 

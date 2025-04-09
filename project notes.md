@@ -24,8 +24,8 @@ Xthere is no space between the operator and and next number on the display
 WISH LIST: Change an operator after it's already been selected (before selecting num2)
 WISH LIST: After hitting the equals button, user should be able to select an operator and create another calculation using the 
     result (right now selecting a new number starts a new calculation and selecting an operator would display an error)
-EXTRA CREDIT: Add a “backspace” button, so the user can undo their last input if they click the wrong number.
-EXTRA CREDIT: Add keyboard support!
+XEXTRA CREDIT: Add a “backspace” button, so the user can undo their last input if they click the wrong number.
+XEXTRA CREDIT: Add keyboard support!
 WISH LIST: Write Jest tests for the scenarios below:
 
 
