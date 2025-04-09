@@ -154,6 +154,9 @@ document.querySelector("#clear").addEventListener("click", () => {
     console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
 });
 
+// backspace button
+
+
 // Calculation Operator Functions
 const add = function(a, b) {
 	const additionResult = parseFloat(a) + parseFloat(b);
