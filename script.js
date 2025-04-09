@@ -7,6 +7,31 @@ let currentDisplayScreen = "";
 const displayScreen = document.querySelector("#calcScreen");
 const updateDisplayScreen = () => displayScreen.textContent = currentDisplayScreen;
 
+// Keyboard Support
+document.addEventListener("keydown", (event) => {
+    const keyPressed = event.key;
+
+    const matchingNumberButton = document.querySelector(`.displayButton[data-key="${keyPressed}"]`);
+    if (matchingNumberButton) {
+        matchingNumberButton.click();
+    };
+
+    const matchingOperatorButton = document.querySelector(`.operator[data-key="${keyPressed}"]`);
+    if (matchingOperatorButton) {
+        matchingOperatorButton.click();
+    };
+
+    const matchingEqualButton = document.querySelector(`#equals[data-key="${keyPressed}"]`);
+    if (matchingEqualButton) {
+        matchingEqualButton.click();
+    };
+
+    const matchingClearButton = document.querySelector(`#clear[data-key="${keyPressed}"]`);
+    if (matchingClearButton) {
+        matchingClearButton.click();
+    };
+});
+
 // Number Button Functionality
 document.querySelectorAll(".displayButton").forEach(button => {
         button.addEventListener("click", () => {
@@ -23,7 +48,7 @@ document.querySelectorAll(".displayButton").forEach(button => {
                 console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 === "" && result === "") { 
                 tempNumber += button.textContent;
-                currentDisplayScreen += button.textContent;
+                currentDisplayScreen = `${num1} ${operator} ${tempNumber}`;
                 updateDisplayScreen();
                 console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
             } else if (tempNumber === "" && num1 !== "" && operator !== "" && num2 !== "" && result !== "") { 
@@ -111,7 +136,7 @@ document.querySelectorAll(".operator").forEach(button => {
     });
 });
 
-// Event Listener for Equal button
+// Event Listener for Equals button
 document.querySelector("#equals").addEventListener("click", () => {
     if (tempNumber !== "" && num1 === "" && operator === "" && num2 === "" && result === "") {
         tempNumber = "";
@@ -154,7 +179,29 @@ document.querySelector("#clear").addEventListener("click", () => {
     console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
 });
 
-// Back button - deletes last input
+// Back Button - deletes last index of tempNumber - BUG: Stops working on keyboard sometimes.
+document.querySelector("#back").addEventListener("click", () => {
+    if (tempNumber === "" && num1 === "" && operator === "") {
+        return;
+    } else if (tempNumber === "" && num1 !== "" && operator !== "") {
+        return;
+    } else if (tempNumber !== "" && num1 === "" && operator === "" && num2 === "") {
+        tempNumber = tempNumber.slice(0, -1);
+        currentDisplayScreen = tempNumber;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } else if (tempNumber !== "" && num1 !== "" && operator !== "" && num2 === "") {
+        tempNumber = tempNumber.slice(0, -1);
+        currentDisplayScreen = `${num1} ${operator} ${tempNumber}`;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    } else if (tempNumber === "" && num1 !== "" & operator !== "") {
+        tempNumber = tempNumber.slice(0, -1);
+        currentDisplayScreen = `${num1} ${operator}`;
+        updateDisplayScreen();
+        console.log(`tempNum is ${tempNumber} | num1 is ${num1} | operation is ${operator} | num2 is ${num2} | result is ${result}`);
+    };
+});
 
 
 // Calculation Operator Functions
